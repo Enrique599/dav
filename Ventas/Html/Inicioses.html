@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Sesion</title>
+    <link rel="stylesheet" href="../Css/inicioses.css">
+</head>
+
+<body>
+    <div class="logo">
+        <img src="../Imagenes/logo.jpg" alt="Logo de Ventas">
+    </div>
+
+    <h1>Inicio de sesion </h1>
+
+    <div class="form-container">
+        <form>
+            <div class="form-group">
+                <span>📞</span>
+                <input type="text" placeholder="Teléfono" name="telefono">
+            </div>
+            
+            <div class="form-group">
+                <span>🔒</span>
+                <input type="password" placeholder="Contraseña" name="contrasena">
+            </div>
+       
+
+            <div class="botones">
+                <input type="submit" id="Continuar" value="Continuar" name="Continuar">
+                <a href="Inicial.html" class="botonn">Cancelar</a>
+           </div>
+           
+        </form>
+     </div>
+</body>
+<script>
+    document.getElementById("Continuar").addEventListener("click", function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe
+        window.location.href = "Tiendaden.html"; // Cambia "dashboard.html" por la página que quieras
+    });
+</script>
+
+
+</html>
