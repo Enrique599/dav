@@ -14,11 +14,11 @@ if(isset($_POST["nombre"], $_POST["ap_paterno"], $_POST["telefono"],
     $ap_paterno = $_POST["ap_paterno"];
     $telefono   = $_POST["telefono"];
     $contrasena = password_hash($_POST["contrasena"], PASSWORD_DEFAULT);
-    $direccion  = $_POST["direccion"];
-    $cp         = $_POST["cp"];
 
-    $consulta = "INSERT INTO cliente(Nombre, Ap_paterno, Telefono, Contrasena, Direccion, CP)
-                 VALUES ('$nombre', '$ap_paterno', '$telefono', '$contrasena', '$direccion', '$cp')";
+
+
+    $consulta = "INSERT INTO cliente(Nombre, Ap_paterno, Telefono, Contrasena)
+                 VALUES ('$nombre', '$ap_paterno', '$telefono', '$contrasena')";
     $mysqli->query($consulta);
     $guardado = true;
 }
@@ -51,11 +51,7 @@ include("layout_header.php");
         <input class="fc" type="text" name="telefono" placeholder="Teléfono" required></div>
       <div class="fg"><label>Contraseña *</label>
         <input class="fc" type="password" name="contrasena" placeholder="Contraseña" required></div>
-      <div class="fg"><label>Dirección *</label>
-        <input class="fc" type="text" name="direccion" placeholder="Dirección" required></div>
-      <div class="fg"><label>Código Postal *</label>
-        <input class="fc" type="text" name="cp" placeholder="Código Postal" required></div>
-    </div>
+
     <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
   </form>
 </div>
@@ -71,7 +67,7 @@ include("layout_header.php");
     <thead>
       <tr>
         <th>ID</th><th>Nombre</th><th>Ap. Paterno</th>
-        <th>Teléfono</th><th>Dirección</th><th>CP</th>
+        <th>Teléfono</th>
         <th>Eliminar</th><th>Modificar</th>
       </tr>
     </thead>
@@ -82,8 +78,7 @@ include("layout_header.php");
         <td><?php echo $row['Nombre']; ?></td>
         <td><?php echo $row['Ap_paterno']; ?></td>
         <td><?php echo $row['Telefono']; ?></td>
-        <td><?php echo $row['Direccion']; ?></td>
-        <td><?php echo $row['CP']; ?></td>
+
         <td>
           <a href="eliminar.php?id=<?php echo $row['Id_cliente']; ?>"
              class="ib ib-del"
